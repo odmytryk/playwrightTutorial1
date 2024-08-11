@@ -12,14 +12,15 @@ def set_up(page):
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
 
     yield page
-@pytest.fixture(scope="function")
-def setup_log_in(browser):
-    browser = playwright.chromium.launch(headless=False, slow_mo=1000)
-    context = browser.new_context()
-    page = context.new_page()
+@pytest.fixture
+def setup_log_in(page):
+    #browser = playwright.chromium.launch(headless=False, slow_mo=1000)
+    #context = browser.new_context()
+    #page = context.new_page()
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
 
     print("Before test")
+    page.wait_for_timeout(2000)
     page.get_by_role("button", name="Log In").click()
     print("clicked login icon")
     page.get_by_test_id("signUp.switchToSignUp").click()
