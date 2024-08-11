@@ -1,5 +1,3 @@
-import time
-
 from playwright.sync_api import Playwright, sync_playwright, expect
 
 
@@ -14,7 +12,7 @@ def run(playwright: Playwright) -> None:
     contact_us_form_ola.submit_form("Olha", "home", "ol@gm.co", "123123", "text test", "happy")
     # page.pause()
     page.get_by_role("button", name="Submit").click()
-    #time.sleep(6)
+    time.sleep(6)
     expect(page.get_by_text("Thanks")).to_be_visible()
     print("after")
     #page.pause()
