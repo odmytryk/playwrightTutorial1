@@ -14,7 +14,7 @@ def set_up(page):
     yield page
 @pytest.fixture(scope="function")
 def setup_log_in(browser):
-    #browser = playwright.chromium.launch(headless=False, slow_mo=1000)
+    browser = playwright.chromium.launch(headless=False, slow_mo=1000)
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
