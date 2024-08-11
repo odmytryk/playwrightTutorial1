@@ -8,7 +8,7 @@ def test_tets_trarara(set_up, email, password) -> None:
     page = set_up
 
     print("Before test")
-
+    page.wait_for_timeout(2000)
     page.get_by_role("button", name="Log In").click()
     print("clicked login icon")
     page.get_by_test_id("signUp.switchToSignUp").click()
