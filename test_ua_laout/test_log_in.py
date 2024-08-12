@@ -94,7 +94,8 @@ def test_tets_trarara_2(set_up) -> None:
     page.get_by_test_id("emailAuth").get_by_label("Email").fill("olha1@fake.com")
     page.get_by_label("Password").click()
     #page.get_by_label("Password").fill(utils.secret_config.PASSWORT)
-    page.get_by_label("Password").fill(os.environ["PASSWORT"])
+    page.get_by_label("Password").fill(os.environ["PASSWORD"])
+
     page.get_by_test_id("submit").get_by_test_id("buttonElement").click()
     print("After steps")
     #page.pause()
