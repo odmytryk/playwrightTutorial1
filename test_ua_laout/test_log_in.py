@@ -3,7 +3,11 @@ import os
 import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-#import utils.secret_config
+try:
+    PASSWORD = os.environ['PASSWORD']
+except:
+    import utils.secret_config
+    PASSWORD = utils.secret_config.PASSWORD
 
 
 # #from home_page_elements import TestHomePage
@@ -93,8 +97,9 @@ def test_tets_trarara_2(set_up) -> None:
     print("clicked Log in with Email")
     page.get_by_test_id("emailAuth").get_by_label("Email").fill("olha1@fake.com")
     page.get_by_label("Password").click()
-    #page.get_by_label("Password").fill(utils.secret_config.PASSWORT)
-    page.get_by_label("Password").fill(os.environ["PASSWORD"])
+    # page.get_by_label("Password").fill(utils.secret_config.PASSWORD)
+    # page.get_by_label("Password").fill(os.environ["PASSWORD"])
+    page.get_by_label("Password").fill(PASSWORD)
 
     page.get_by_test_id("submit").get_by_test_id("buttonElement").click()
     print("After steps")
