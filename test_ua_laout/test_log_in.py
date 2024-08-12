@@ -3,11 +3,12 @@ import os
 import pytest
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-try:
-    PASSWORD = os.environ['PASSWORD']
-except:
-    import utils.secret_config
-    PASSWORD = utils.secret_config.PASSWORD
+PASSWORD = os.environ['PASSWORD']
+# try:
+#     PASSWORD = os.environ['PASSWORD']
+# except:
+#     import utils.secret_config
+#     PASSWORD = utils.secret_config.PASSWORD
 
 
 # #from home_page_elements import TestHomePage
